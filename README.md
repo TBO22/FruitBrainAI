@@ -83,7 +83,7 @@
     </li>
     <li><strong>Fully Connected (Dense) Layer:</strong>
         <ul>
-            <li>Number of neurons: 128</li>
+            <li>Number of neurons: 256</li>
             <li>Activation function: <strong>ReLU</strong></li>
         </ul>
     </li>
@@ -100,7 +100,7 @@
     </li>
 </ul>
 
-<p>The architecture begins with three convolutional layers, each followed by max-pooling layers. The convolutional layers extract features from the input images, while the pooling layers reduce the spatial dimensions to avoid overfitting. After flattening the output, it is passed through a fully connected layer with 128 neurons, followed by a dropout layer for regularization. The output layer, with 6 neurons, uses the softmax activation to predict the class probabilities for the six fruit categories.</p>
+<p>The architecture begins with three convolutional layers, each followed by max-pooling layers. The convolutional layers extract features from the input images, while the pooling layers reduce the spatial dimensions to avoid overfitting. After flattening the output, it is passed through a fully connected layer with 256 neurons, followed by a dropout layer for regularization. The output layer, with 6 neurons, uses the softmax activation to predict the class probabilities for the six fruit categories.</p>
 
 
 <hr>
@@ -122,44 +122,44 @@
     <tbody>
         <tr>
             <td>Fresh Apples</td>
-            <td>0.96</td>
-            <td>0.87</td>
-            <td>0.91</td>
+            <td>0.94</td>
+            <td>0.95</td>
+            <td>0.94</td>
             <td>395</td>
         </tr>
         <tr>
             <td>Fresh Banana</td>
+            <td>0.99</td>
+            <td>0.96</td>
             <td>0.98</td>
-            <td>0.97</td>
-            <td>0.97</td>
             <td>381</td>
         </tr>
         <tr>
             <td>Fresh Oranges</td>
-            <td>0.95</td>
-            <td>0.94</td>
-            <td>0.94</td>
+            <td>0.97</td>
+            <td>0.96</td>
+            <td>0.96</td>
             <td>388</td>
         </tr>
         <tr>
             <td>Rotten Apples</td>
-            <td>0.83</td>
-            <td>0.94</td>
-            <td>0.88</td>
+            <td>0.91</td>
+            <td>0.91</td>
+            <td>0.91</td>
             <td>601</td>
         </tr>
         <tr>
             <td>Rotten Banana</td>
-            <td>0.96</td>
             <td>0.99</td>
             <td>0.97</td>
+            <td>0.98</td>
             <td>530</td>
         </tr>
         <tr>
             <td>Rotten Oranges</td>
-            <td>0.96</td>
-            <td>0.84</td>
-            <td>0.90</td>
+            <td>0.89</td>
+            <td>0.95</td>
+            <td>0.92</td>
             <td>403</td>
         </tr>
     </tbody>
@@ -170,25 +170,25 @@
     <li><strong>Accuracy</strong>: 93%</li>
     <li><strong>Macro Average</strong>:
         <ul>
-            <li>Precision: 0.94</li>
-            <li>Recall: 0.92</li>
-            <li>F1-Score: 0.93</li>
+            <li>Precision: 0.95</li>
+            <li>Recall: 0.95</li>
+            <li>F1-Score: 0.95</li>
         </ul>
     </li>
     <li><strong>Weighted Average</strong>:
         <ul>
-            <li>Precision: 0.93</li>
-            <li>Recall: 0.93</li>
-            <li>F1-Score: 0.93</li>
+            <li>Precision: 0.95</li>
+            <li>Recall: 0.95</li>
+            <li>F1-Score: 0.95</li>
         </ul>
     </li>
 </ul>
 
 <h3>Training and Validation Accuracy:</h3>
 <ul>
-    <li><strong>Training Accuracy</strong>: 87.59%</li>
-    <li><strong>Test Accuracy</strong>: 92.88%</li>
-    <li><strong>Validation Accuracy</strong>: 92.31%</li>
+    <li><strong>Training Accuracy</strong>: 90.54%</li>
+    <li><strong>Test Accuracy</strong>: 94.8%</li>
+    <li><strong>Validation Accuracy</strong>: 93.6%</li>
 </ul>
 
 <hr>
@@ -222,6 +222,10 @@
 <p>The model was evaluated using accuracy, precision, recall, and F1-score to determine its performance on both the training and test datasets. The results above show the model’s effectiveness in distinguishing between fresh and rotten fruits.</p>
 
 <hr>
+<h3 align="center">Confusion Matrix</h3>
+<p align="center">
+  <img src="confusion_matrix.png" alt="Confusion Matrix Image" width="400">
+</p>
 
 <h2>How to Use the Model</h2>
 
@@ -273,21 +277,20 @@ print(f'The predicted class is: {predicted_class}')
 
 <h2>Model Evaluation and Performance</h2>
 
-<p>The model demonstrates good performance, with an accuracy of 92.88% on the test set. The precision and recall scores for the classes are generally high, particularly for <strong>fresh bananas</strong>, which has an impressive precision of 0.98 and recall of 0.97.</p>
+<p>The model demonstrates good performance, with an accuracy of 94.8% on the test set. The precision and recall scores for the classes are generally high, particularly for <strong>rotten bananas</strong>, which has an impressive precision of 0.99 and recall of 0.97.</p>
 
 <h3>Confusion Matrix:</h3>
-<p>The model shows some difficulty with <strong>fresh apples</strong>, having a lower recall (0.87), which might be due to image quality or similarity with other fruit types. However, the <strong>rotten bananas</strong> and <strong>rotten apples</strong> classes have very high precision and recall, which is a good indicator that the model can differentiate between fresh and rotten fruits quite well.</p>
-
+<p>The model shows some difficulty with <strong>rotten apples</strong>, having a lower recall (0.91), which might be due to image quality or similarity with other fruit types. However, the <strong>rotten bananas</strong> and <strong>other</strong> classes have very high precision and recall, which is a good indicator that the model can differentiate between fresh and rotten fruits quite well.</p>
 <hr>
 
 <h2>Conclusion</h2>
 
-<p>This fruit classification model provides a reliable solution for distinguishing between fresh and rotten fruits, using deep learning techniques with Convolutional Neural Networks (CNN). The model achieved a high test accuracy of 92.88% and can be easily used for classifying images of fruits into one of six categories.</p>
+<p>This fruit classification model provides a reliable solution for distinguishing between fresh and rotten fruits, using deep learning techniques with Convolutional Neural Networks (CNN). The model achieved a high test accuracy of 94.8% and can be easily used for classifying images of fruits into one of six categories.</p>
 
 <h3>Future Improvements:</h3>
 <ul>
     <li><strong>Increase dataset size</strong> for better model generalization.</li>
-    <li><strong>Enhance model architecture</strong> by experimenting with different CNN layers or more advanced models like ResNet or Inception.</li>
+    <li><strong>Enhance model architecture</strong> by experimenting with more CNN layers or more advanced models like ResNet or Inception.</li>
     <li><strong>Implement real-time fruit classification</strong> using camera feeds for practical applications.</li>
 </ul>
 
