@@ -224,7 +224,7 @@
 <hr>
 <h3 align="center">Confusion Matrix</h3>
 <p align="center">
-  <img src="confusion_matrix.png" alt="Confusion Matrix Image" width="400">
+  <img src="Confusion_Matrix.png" alt="Confusion Matrix Image" width="400">
 </p>
 
 <h2>How to Use the Model</h2>
